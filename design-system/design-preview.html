@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OnLinePrep Design System</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="tokens.css">
+<style>
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--text);font:var(--weight-regular) var(--text-base)/var(--lh-base) var(--font-sans)}
+  .wrap{max-width:var(--content-wide);margin:0 auto;padding:var(--space-4);background:var(--bg);color:var(--text)}
+  header.top{display:flex;align-items:center;gap:var(--space-3);justify-content:space-between;flex-wrap:wrap;padding:var(--space-4) 0;border-bottom:1px solid var(--border)}
+  header.top img{height:44px;width:auto;background:#fff;border-radius:var(--radius-sm)}
+  h1{font-size:var(--text-xl);line-height:var(--lh-xl);margin:var(--space-8) 0 var(--space-2)}
+  h2{font-size:var(--text-lg);line-height:var(--lh-lg);margin:var(--space-8) 0 var(--space-3);padding-bottom:var(--space-2);border-bottom:2px solid var(--highlight)}
+  h3{font-size:var(--text-base);margin:var(--space-4) 0 var(--space-2);color:var(--text-muted);font-weight:var(--weight-medium)}
+  p.lead{color:var(--text-muted);max-width:60ch;margin:0}
+  .grid{display:grid;gap:var(--space-4)}
+  .g2{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+  .g4{grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}
+  .card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-md);padding:var(--space-4);box-shadow:var(--shadow-1)}
+  .sw{border-radius:var(--radius-sm);height:64px;border:1px solid var(--border);display:flex;align-items:flex-end;padding:6px 8px;font-size:var(--text-xs);font-weight:var(--weight-medium)}
+  .logos{display:grid;gap:var(--space-4);grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+  .logos figure{margin:0;background:#fff;border:1px solid var(--border);border-radius:var(--radius-md);padding:var(--space-3);text-align:center}
+  .logos img{max-width:100%;height:150px;object-fit:contain}
+  .logos figcaption{font-size:var(--text-sm);color:#4A5B78;margin-top:var(--space-2)}
+  .tag{display:inline-block;font-size:var(--text-xs);font-weight:var(--weight-bold);padding:2px 8px;border-radius:var(--radius-full)}
+  .tag.ok{background:#E3F5EC;color:#0F7B4F}
+  .tag.no{background:#FCE8E6;color:#B3261E}
+  .tag.wait{background:#FBF0D2;color:#8A5A00}
+  .btn{min-height:var(--touch-min);padding:0 var(--space-6);border-radius:var(--radius-md);border:2px solid transparent;font:var(--weight-medium) var(--text-base) var(--font-sans);cursor:pointer;transition:background var(--motion-base) var(--ease)}
+  .btn.primary{background:var(--accent);color:var(--text-on-accent)}
+  .btn.primary:hover{background:var(--accent-hover)}
+  .btn.secondary{background:transparent;color:var(--accent);border-color:var(--accent)}
+  .btn.gold{background:var(--highlight);color:var(--on-highlight)}
+  .btn.danger{background:var(--danger);color:var(--bg)}
+  .btn[disabled]{opacity:.5;cursor:not-allowed}
+  .row{display:flex;gap:var(--space-3);flex-wrap:wrap;align-items:center}
+  label{display:block;font-weight:var(--weight-medium);margin-bottom:var(--space-1)}
+  input[type=text],input[type=tel]{width:100%;min-height:var(--touch-min);padding:0 var(--space-3);border:2px solid var(--border-input);border-radius:var(--radius-md);background:var(--surface);color:var(--text);font:inherit}
+  input.err{border-color:var(--danger)}
+  .help{font-size:var(--text-sm);color:var(--text-muted);margin-top:var(--space-1)}
+  .errmsg{font-size:var(--text-sm);color:var(--danger);margin-top:var(--space-1)}
+  .otp{display:flex;gap:var(--space-2)}
+  .otp input{width:48px;text-align:center;padding:0;font-size:var(--text-lg)}
+  .progress{height:12px;background:var(--bg-subtle);border:1px solid var(--border);border-radius:var(--radius-full);overflow:hidden}
+  .progress>span{display:block;height:100%;background:var(--highlight-graphic);border-radius:var(--radius-full)}
+  .chip{display:inline-flex;align-items:center;gap:6px;font-size:var(--text-sm);font-weight:var(--weight-medium);padding:4px 12px;border-radius:var(--radius-full);border:1.5px solid currentColor}
+  .opt{display:flex;gap:var(--space-3);align-items:flex-start;width:100%;text-align:left;min-height:var(--touch-min);padding:var(--space-3) var(--space-4);margin-top:var(--space-2);background:var(--surface);border:2px solid var(--border-input);border-radius:var(--radius-md);color:var(--text);font:inherit;cursor:pointer}
+  .opt b{flex:none;width:28px;height:28px;border-radius:50%;background:var(--bg-subtle);border:1px solid var(--border);display:grid;place-items:center;font-size:var(--text-sm)}
+  .opt.good{border-color:var(--success);background:var(--success-bg)}
+  .opt.bad{border-color:var(--danger);background:var(--danger-bg)}
+  .banner{display:flex;gap:var(--space-2);align-items:center;background:var(--warning-bg);color:var(--warning);border-radius:var(--radius-md);padding:var(--space-3) var(--space-4);font-weight:var(--weight-medium)}
+  .phone{width:340px;max-width:100%;border:8px solid var(--navy-900);border-radius:32px;overflow:hidden;background:var(--bg);margin:0 auto}
+  .phone .bar{display:flex;align-items:center;gap:var(--space-2);height:var(--header-h);padding:0 var(--space-4);background:var(--navy-700);color:#fff;font-weight:var(--weight-bold)}
+  .phone .body{padding:var(--space-4);min-height:430px}
+  .nav{display:grid;grid-template-columns:repeat(4,1fr);height:var(--bottomnav-h);border-top:1px solid var(--border);background:var(--surface)}
+  .nav a{display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:var(--text-xs);color:var(--text-muted);gap:2px;text-decoration:none;min-height:var(--touch-min)}
+  .nav a[aria-current=page]{color:var(--text);font-weight:var(--weight-bold)}
+  .nav a[aria-current=page] svg{stroke:var(--highlight-graphic)}
+  .nav svg{width:24px;height:24px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+  table{width:100%;border-collapse:collapse;font-size:var(--text-sm)}
+  th,td{text-align:left;padding:8px;border-bottom:1px solid var(--border)}
+  .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+  .skip{position:absolute;left:-999px}.skip:focus{left:8px;top:8px;background:#fff;color:#000;padding:8px;z-index:9}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Aller au contenu</a>
+<div class="wrap" id="root">
+<header class="top">
+  <img src="assets/logo/logo-01-primary-bold.png" alt="OnLinePrep">
+  <div class="row">
+    <span class="tag ok">v1.0 · 0 échec WCAG AA</span>
+    <button class="btn secondary" id="theme" aria-pressed="false">Mode sombre</button>
+  </div>
+</header>
+<main id="main">
+<h1>Design system OnLinePrep</h1>
+<p class="lead">Dérivé du logo (marine + or) et du cahier des charges v3.0. Concours médicaux du Cameroun : lisible sur un petit écran, utilisable hors connexion, honnête sur l'incertitude.</p>
+
+<h2>1 · Choix du logo</h2>
+<div class="logos">
+  <figure><img src="assets/logo/logo-01-primary-bold.png" alt="Logo principal"><figcaption><span class="tag ok">RETENU · principal</span><br>Mot-symbole gras : le plus lisible à petite taille.</figcaption></figure>
+  <figure><img src="assets/logo/logo-04-tagline-horizontal.png" alt="Logo avec slogan"><figcaption><span class="tag ok">RETENU · héros web et stores</span><br>Slogan « Préparer aujourd'hui les médecins de demain ». Jamais sous 240 px de large.</figcaption></figure>
+  <figure><img src="assets/icons/app-icon-1024.png" alt="Icône d'application"><figcaption><span class="tag ok">RETENU · icône</span><br>Symbole seul, fond plein (iOS interdit la transparence).</figcaption></figure>
+  <figure><img src="assets/logo/logo-02-light-weight.png" alt="Logo graisse légère"><figcaption><span class="tag wait">RÉSERVE</span><br>Trait fin : se dégrade sous 120 px.</figcaption></figure>
+  <figure><img src="assets/logo/logo-03-caduceus-monogram.png" alt="Logo caducée"><figcaption><span class="tag no">ÉCARTÉ</span><br>Se lit « IP », pas « OP » ; serpent illisible à 48 px.</figcaption></figure>
+  <figure><img src="assets/logo/logo-05-caduceus-tagline.png" alt="Logo caducée avec slogan"><figcaption><span class="tag no">ÉCARTÉ</span><br>Même raison, et un second slogan différent.</figcaption></figure>
+</div>
+
+<h2>2 · Couleurs</h2>
+<h3>Marine</h3>
+<div class="grid g4">
+  <div class="sw" style="background:var(--navy-950);color:#fff">950</div><div class="sw" style="background:var(--navy-900);color:#fff">900</div>
+  <div class="sw" style="background:var(--navy-700);color:#fff">700 · logo</div><div class="sw" style="background:var(--navy-600);color:#fff">600</div>
+  <div class="sw" style="background:var(--navy-500);color:#fff">500</div><div class="sw" style="background:var(--navy-200);color:var(--navy-900)">200</div>
+  <div class="sw" style="background:var(--navy-100);color:var(--navy-900)">100</div><div class="sw" style="background:var(--navy-50);color:var(--navy-900)">50</div>
+</div>
+<h3>Or</h3>
+<div class="grid g4">
+  <div class="sw" style="background:var(--gold-800);color:#fff">800 · texte</div><div class="sw" style="background:var(--gold-700);color:#fff">700 · texte</div>
+  <div class="sw" style="background:var(--gold-600);color:var(--navy-900)">600 · graphique</div><div class="sw" style="background:var(--gold-500);color:var(--navy-900)">500 · logo</div>
+  <div class="sw" style="background:var(--gold-400);color:var(--navy-900)">400</div><div class="sw" style="background:var(--gold-100);color:var(--navy-900)">100</div>
+</div>
+<p class="help">Règle : l'or du logo (#D99A14) ne fait que 2,45:1 sur blanc. Il sert aux aplats avec texte marine dessus ; le texte or sur fond clair utilise #9A6700 (4,87:1).</p>
+
+<h2>3 · Typographie — Lexend</h2>
+<div class="card">
+  <div style="font-size:var(--text-2xl);line-height:var(--lh-2xl);font-weight:700">Aujourd'hui · 40/48</div>
+  <div style="font-size:var(--text-xl);line-height:var(--lh-xl);font-weight:700">Titre d'écran · 28/35</div>
+  <div style="font-size:var(--text-lg);line-height:var(--lh-lg);font-weight:500">Sous-titre · 20/29</div>
+  <div>Énoncé de question et corps · 16/26. Un patient de 45 ans présente une douleur thoracique…</div>
+  <div style="font-size:var(--text-sm);color:var(--text-muted)">Aide et métadonnées · 14/22</div>
+</div>
+
+<h2>4 · Composants</h2>
+<div class="grid g2">
+  <div class="card">
+    <h3>Boutons (48 px minimum)</h3>
+    <div class="row"><button class="btn primary">Commencer</button><button class="btn secondary">Plus tard</button><button class="btn gold">Passer Pro</button></div>
+    <div class="row" style="margin-top:12px"><button class="btn danger">Supprimer mon compte</button><button class="btn primary" disabled>Désactivé</button></div>
+  </div>
+  <div class="card">
+    <h3>Champs et OTP</h3>
+    <label for="tel">Numéro de téléphone</label>
+    <input id="tel" type="tel" inputmode="tel" value="+237 6" aria-describedby="telh">
+    <div class="help" id="telh">Nous envoyons un code à 6 chiffres. Valable 5 minutes.</div>
+    <div style="margin-top:12px" class="otp" role="group" aria-label="Code à 6 chiffres"><input aria-label="Chiffre 1" inputmode="numeric" maxlength="1"><input aria-label="Chiffre 2" inputmode="numeric" maxlength="1"><input aria-label="Chiffre 3" inputmode="numeric" maxlength="1"><input class="err" aria-label="Chiffre 4" inputmode="numeric" maxlength="1" aria-invalid="true"><input aria-label="Chiffre 5" inputmode="numeric" maxlength="1"><input aria-label="Chiffre 6" inputmode="numeric" maxlength="1"></div>
+    <div class="errmsg" role="alert">⚠ Code incorrect. Il vous reste 4 essais.</div>
+  </div>
+  <div class="card">
+    <h3>Niveau de maîtrise (icône + texte + couleur — CDC UX-03)</h3>
+    <div class="row">
+      <span class="chip" style="color:var(--mastery-todo)">▲ À travailler</span>
+      <span class="chip" style="color:var(--mastery-progress)">◐ En progression</span>
+      <span class="chip" style="color:var(--mastery-good)">✓ Résultats encourageants</span>
+      <span class="chip" style="color:var(--mastery-unknown)">? À confirmer · 3 questions</span>
+    </div>
+    <p class="help">Jamais de pourcentage de réussite au concours : le CDC (PED-04) l'interdit.</p>
+    <div class="progress" role="progressbar" aria-valuenow="14" aria-valuemin="0" aria-valuemax="20" aria-label="Séance : 14 questions sur 20"><span style="width:70%"></span></div>
+    <div class="help">14 / 20 questions</div>
+  </div>
+  <div class="card">
+    <h3>Bannière hors connexion</h3>
+    <div class="banner" role="status">☁︎ Hors connexion — vos réponses sont enregistrées sur ce téléphone.</div>
+    <h3>Paquet téléchargé</h3>
+    <div class="row"><span class="chip" style="color:var(--success)">✓ Biologie · 100 questions · 0,8 Mo</span></div>
+    <div class="help">Mis à jour le 12 oct. 2026 · fraîcheur toujours visible (SYN-04)</div>
+  </div>
+</div>
+
+<h2>5 · Écran type (mobile) : question, correction et navigation</h2>
+<div class="phone" aria-label="Maquette d'écran de question">
+  <div class="bar">Biologie · Génétique <span style="margin-left:auto;font-weight:400;font-size:var(--text-sm)">14/20</span></div>
+  <div class="body">
+    <div class="progress" aria-hidden="true"><span style="width:70%"></span></div>
+    <p style="margin-top:16px;font-weight:500">Quel mode de transmission est typique d'une maladie liée à l'X récessive ?</p>
+    <button class="opt"><b>A</b> Transmission père → fils</button>
+    <button class="opt good"><b>B</b> Garçons atteints, filles conductrices <span aria-hidden="true">✓</span><span class="sr">Bonne réponse</span></button>
+    <button class="opt bad"><b>C</b> Atteinte égale des deux sexes <span aria-hidden="true">✗</span><span class="sr">Réponse fausse</span></button>
+    <p class="help" style="margin-top:12px"><b>Pourquoi ?</b> Un garçon n'a qu'un seul X : l'allèle récessif s'exprime. Prochaine révision demain.</p>
+    <button class="btn primary" style="width:100%;margin-top:8px">Question suivante</button>
+  </div>
+  <nav class="nav" aria-label="Navigation principale">
+    <a href="#" aria-current="page"><svg viewBox="0 0 24 24"><path d="M3 11l9-8 9 8v10H3z"/></svg>Aujourd'hui</a>
+    <a href="#"><svg viewBox="0 0 24 24"><path d="M12 3v18M3 12h18"/></svg>Entraînement</a>
+    <a href="#"><svg viewBox="0 0 24 24"><path d="M3 20l6-8 4 4 8-12"/></svg>Progrès</a>
+    <a href="#"><svg viewBox="0 0 24 24"><path d="M4 4h16v16H4zM8 8h8M8 12h8"/></svg>Bibliothèque</a>
+  </nav>
+</div>
+
+<h2>6 · Contraste mesuré (mode clair)</h2>
+<div class="card"><table><thead><tr><th>Paire</th><th>Ratio</th><th>Usage</th></tr></thead><tbody>
+<tr><td>Texte marine / blanc</td><td>13,95:1</td><td>Corps</td></tr>
+<tr><td>Texte atténué / blanc</td><td>6,87:1</td><td>Aides</td></tr>
+<tr><td>Marine 900 / or 500</td><td>7,02:1</td><td>Bouton « Pro »</td></tr>
+<tr><td>Or 700 / blanc</td><td>4,87:1</td><td>Texte or</td></tr>
+<tr><td>Or 500 / blanc</td><td>2,45:1 ✗</td><td>Aplat uniquement, jamais du texte</td></tr>
+</tbody></table><p class="help">Rapport complet : <code>python3 design-system/scripts/contrast.py</code> — 0 échec en clair et en sombre.</p></div>
+</main>
+</div>
+<script>
+const b=document.getElementById('theme');
+b.addEventListener('click',()=>{const d=document.documentElement.dataset.theme==='dark';
+document.documentElement.dataset.theme=d?'light':'dark';document.getElementById('root').classList.toggle('theme-dark',!d);
+document.body.style.background=d?'':'var(--bg)';
+b.setAttribute('aria-pressed',String(!d));b.textContent=d?'Mode sombre':'Mode clair'});
+</script>
+</body>
+</html>

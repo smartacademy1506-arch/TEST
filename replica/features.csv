@@ -1,0 +1,34 @@
+id,feature,area,priority,cdc_ref,original,clone,notes
+F01,Compte téléphone + OTP,auth,must,ACC-01..04,MedQuiz: nom/e-mail/tél (inféré),no,SMS au Cameroun : fournisseur à décider (Q4)
+F02,Diagnostic 15 questions avec incertitude,pedagogie,must,PED-01,non annoncé,no,Pas de pourcentage trompeur
+F03,Banque de questions versionnée,contenu,must,CNT-01,"MedQuiz >1000 q; Med Prepa TD",no,Contenu original uniquement
+F04,Explication détaillée par question,contenu,must,CNT-01,MedQuiz oui,no,Distracteurs commentés
+F05,Classement par matière/compétence/difficulté,contenu,must,EXM-02,MedQuiz oui,no,
+F06,Révision espacée 5 boîtes (1-2-4-7-14 j),pedagogie,must,PED-02,aucun,no,Avantage différenciant
+F07,Séance du jour 20 questions (50/30/20),pedagogie,must,PED-03,aucun,no,
+F08,Épreuve chronométrée / concours blanc,examen,must,ASM-01,Med Prepa anciens sujets,no,Non officielle tant que barème non vérifié
+F09,Progrès honnête (à travailler / en progression / encourageant),pedagogie,must,PED-04,MedQuiz « à venir »,no,Jamais de probabilité de réussite
+F10,Hors ligne : paquets signés + file de réponses,offline,must,SYN-01..07,non annoncé,no,Partie la plus difficile
+F11,Synchronisation idempotente multiappareil,offline,must,SYN-02/03,aucune,no,
+F12,Offre gratuite + pass 30 jours / session,commerce,must,COM-01,inconnu,no,Prix test 5 000 / 15 000 XAF
+F13,Paiement Mobile Money (adaptateur),commerce,must,PAY-01..04,inconnu,no,Notch Pay à valider (S11/S12)
+F14,Droits d'accès (entitlements) serveur,commerce,must,PAY-01,inconnu,no,
+F15,Signalement d'une question,contenu,must,EDT-04,non annoncé,no,
+F16,Back-office : édition + workflow 4 rôles,admin,must,EDT-01/ADM-01,inconnu,no,
+F17,Support : tickets et vues limitées,admin,must,SUP-01/02,e-mail/tél,no,
+F18,Suppression de compte + export,privacy,must,PRV-02/03,MedQuiz « sur demande »,no,Loi 2024/017
+F19,Fiches de remédiation,contenu,must,CNT-02,Med Prepa cours,no,Sur compétences vendues
+F20,Application web PWA,web,must,F20,MedQuiz = web enveloppé,no,Next.js
+F21,Application Android native,mobile,must,F19,les deux,no,Expo
+F22,Accessibilité WCAG 2.2 AA + mode sombre + taille texte,ux,must,UX-02/03,non annoncé,no,
+F23,Rappel quotidien (opt-in),engagement,should,F17,non annoncé,no,Heures calmes
+F24,Analyse produit sans pistage excessif,mesure,should,MET-01,inconnu,no,
+F25,Application iOS,mobile,should,F34,non,no,Lot L2
+F26,Codes prépayés revendeurs,commerce,could,F13/COM-04,inconnu,no,L2
+F27,Concours blanc partagé + classement de cohorte,examen,could,ASM-03,non,no,L2
+F28,Vidéos courtes,contenu,could,F28,non,no,L3
+F29,Assistant IA candidat,ia,could,AI-02,non,no,L3 après jeu d'évaluation
+F30,Forum / communauté,social,skip,F36,Med Prepa oui,no,Hors noyau : modération et mineurs
+F31,Messagerie entre candidats,social,skip,§3.3,non,no,Exclu du MVP
+F32,Classement « national » et prédiction d'admission,examen,skip,§3.3,non,no,Trompeur
+F33,Cours complets de l'éditeur concurrent,contenu,skip,—,Med Prepa oui,no,Droits d'auteur
