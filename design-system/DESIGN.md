@@ -1,6 +1,6 @@
 # OnLinePrep — Design System v1.0
 
-Dérivé du logo (marine + or) et du CDC v3.0. Source de vérité des valeurs : `tokens.json` → `tokens.css`.
+Palette officielle : **bleu `#1F4E79` + orange `#F5A623`** (couleurs du CDC UX-02, choix confirmé par l'utilisateur le 18 oct. 2026). Structure issue du logo et du CDC v3.0. Source de vérité des valeurs : `tokens.json` → `tokens.css`.
 Vérification : `python3 design-system/scripts/contrast.py` (0 échec AA attendu). Aperçu : `design-preview.html`.
 
 ## 1. Choix du logo (décision et critique)
@@ -15,27 +15,27 @@ Vérification : `python3 design-system/scripts/contrast.py` (0 échec AA attendu
 
 Réserves à lever avant publication (voir `docs/CRITIQUE_ET_QUESTIONS.md`) :
 1. Les 5 logos sont des **images raster** (1254 px) : il faut une version **vectorielle (SVG)** par un designer, et une recherche d'antériorité de marque (OAPI pour le Cameroun) avant dépôt.
-2. Le dégradé métallique de la croix n'est pas reproductible en petit : utiliser la version **aplat** (`--gold-500`) en interface.
-3. Fond clair uniquement : prévoir une variante **monochrome blanc** pour les fonds marine.
+2. Le dégradé métallique de la croix n'est pas reproductible en petit : utiliser la version **aplat** (`--orange-500`) en interface.
+3. Fond clair uniquement : prévoir une variante **monochrome blanc** pour les fonds bleus.
 
 Zone de protection : hauteur du « O » autour du logo. Taille minimale : symbole 24 px ; mot-symbole 96 px ; avec slogan 240 px.
 
 ## 2. Couleurs
 
-Marine `#0A2A5E` = action et structure. Or `#D99A14` = progression et mise en valeur (la flèche du logo).
+Bleu `#1F4E79` = action et structure. Orange `#F5A623` = progression et mise en valeur (comme la flèche du logo).
 
 | Rôle | Clair | Sombre |
 |---|---|---|
-| Fond / surface | `#FFFFFF` / `#F3F6FB` | `#041330` / `#061A3D` |
-| Texte / atténué | `#061A3D` / `#4A5B78` | `#F3F6FB` / `#B4C1D9` |
-| Action | `#0A2A5E` avec texte blanc | `#E8B93F` avec texte `#041330` |
-| Texte or | `#9A6700` (4,87:1) | `#E8B93F` |
-| Graphique or (jauges) | `#B9780A` | `#E8B93F` |
+| Fond / surface | `#FFFFFF` / `#F3F7FB` | `#0A1F33` / `#12324F` |
+| Texte / atténué | `#12324F` / `#4A6076` | `#F3F7FB` / `#B7C7D9` |
+| Action | `#1F4E79` avec texte blanc | `#F8BC55` avec texte `#0A1F33` |
+| Texte orange | `#9A5C00` (5,38:1) | `#F8BC55` |
+| Graphique or (jauges) | `#B86E00` | `#F8BC55` |
 | Succès / Danger | `#0F7B4F` / `#B3261E` | `#4CC38A` / `#FF8A80` |
 | Focus | `#1F6FEB` | `#7DB2FF` |
 
-**Pièges corrigés pendant l'audit :** l'or du logo n'offre que 2,45:1 sur blanc, donc interdit pour du texte et pour des jauges sur blanc (d'où `--highlight-graphic`) ; le texte d'avertissement or sur fond or clair était à 4,29:1 (corrigé en `#8A5A00`).
-**Écart avec le CDC (UX-02)** : il propose de garder l'orange `#F5A623` et le bleu `#1F4E79` ; le logo livré utilise marine + or. Décision proposée : **le logo prime**, l'ancien orange est abandonné (question posée à l'utilisateur).
+**Pièges corrigés pendant l'audit :** l'orange #F5A623 n'offre que 2,03:1 sur blanc, donc interdit pour du texte et pour des jauges sur blanc (d'où `--highlight-graphic`) ; le texte d'avertissement or sur fond or clair était à 4,29:1 (corrigé en `#8A5200`).
+**Décision utilisateur (18 oct. 2026) : on garde les couleurs du CDC**, bleu `#1F4E79` et orange `#F5A623`, au lieu du marine/or exact du logo. Conséquence à traiter : le logo (marine `#0A2A5E`, or dégradé) est un peu plus sombre et plus jaune que l'interface. Deux options pour le graphiste : (a) recolorer le logo aux deux valeurs ci-dessus (recommandé, cohérence totale) ; (b) garder le logo tel quel sur fond blanc, en accord de teinte. Les noms de tokens sont `--blue-*` et `--orange-*`. L'orange `#F5A623` n'offre que ~2:1 sur blanc : il reste réservé aux aplats avec texte bleu foncé dessus ; le texte orange utilise `--orange-700`.
 
 ## 3. Typographie
 

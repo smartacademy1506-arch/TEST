@@ -2,49 +2,49 @@
    Règle d'or : aucun composant n'utilise de hex brut, uniquement ces variables. */
 :root {
   /* ── Marque ── */
-  --navy-950: #041330;
-  --navy-900: #061A3D;
-  --navy-800: #082250;
-  --navy-700: #0A2A5E;   /* marine du logo */
-  --navy-600: #1B3F7A;
-  --navy-500: #2F5A9E;
-  --navy-200: #C9D3E5;
-  --navy-100: #E6ECF5;
-  --navy-50:  #F3F6FB;
+  --blue-950: #0A1F33;
+  --blue-900: #12324F;
+  --blue-800: #17395A;
+  --blue-700: #1F4E79;   /* bleu de marque (CDC UX-02) */
+  --blue-600: #2A5F8F;
+  --blue-500: #3F78AB;
+  --blue-200: #CBD9E8;
+  --blue-100: #E4ECF4;
+  --blue-50:  #F3F7FB;
 
-  --gold-800: #8A5A00;   /* texte d'avertissement (5,9:1) */
-  --gold-700: #9A6700;   /* seul or autorisé pour du TEXTE sur fond clair (4,87:1) */
-  --gold-600: #B9780A;
-  --gold-500: #D99A14;   /* or du logo : aplats, icônes, jamais texte sur blanc (2,45:1) */
-  --gold-400: #E8B93F;   /* or clair : texte sur marine (7,6:1) */
-  --gold-100: #FBF0D2;
-  --gold-50:  #FEF8E8;
+  --orange-800: #8A5200;   /* texte d'avertissement (5,9:1) */
+  --orange-700: #9A5C00;   /* seul orange autorisé pour du TEXTE sur fond clair */
+  --orange-600: #B86E00;
+  --orange-500: #F5A623;   /* orange de marque #F5A623 : aplats et icônes, jamais du texte sur blanc */
+  --orange-400: #F8BC55;   /* orange clair : texte sur bleu foncé */
+  --orange-100: #FDEFD3;
+  --orange-50:  #FEF8EC;
 
   /* ── Rôles sémantiques (clair) ── */
   --bg: #FFFFFF;
-  --bg-subtle: var(--navy-50);
+  --bg-subtle: var(--blue-50);
   --surface: #FFFFFF;
   --surface-raised: #FFFFFF;
-  --border: var(--navy-200);
-  --border-input: #6B7FA3;            /* ≥ 3:1 sur blanc (WCAG 1.4.11) */
-  --text: var(--navy-900);
-  --text-muted: #4A5B78;              /* 6,87:1 */
+  --border: var(--blue-200);
+  --border-input: #6A86A3;            /* ≥ 3:1 sur blanc (WCAG 1.4.11) */
+  --text: var(--blue-900);
+  --text-muted: #4A6076;              /* 6,87:1 */
   --text-on-accent: #FFFFFF;
-  --accent: var(--navy-700);          /* action principale */
-  --accent-hover: var(--navy-800);
-  --highlight: var(--gold-500);       /* progression, badges, flèche du logo */
-  --highlight-text: var(--gold-700);
-  --highlight-graphic: var(--gold-600); /* barres/jauges sur blanc, ≥ 3:1 (1.4.11) */
-  --on-highlight: var(--navy-900);    /* 7,0:1 sur or */
+  --accent: var(--blue-700);          /* action principale */
+  --accent-hover: var(--blue-800);
+  --highlight: var(--orange-500);       /* progression, badges, flèche du logo */
+  --highlight-text: var(--orange-700);
+  --highlight-graphic: var(--orange-600); /* barres/jauges sur blanc, ≥ 3:1 (1.4.11) */
+  --on-highlight: var(--blue-900);    /* 7,0:1 sur or */
   --focus-ring: #1F6FEB;              /* anneau focus bleu vif distinct de la marque */
   --success: #0F7B4F;  --success-bg: #E3F5EC;
   --danger:  #B3261E;  --danger-bg:  #FCE8E6;
-  --warning: var(--gold-800); --warning-bg: var(--gold-100);
-  --info: var(--navy-600); --info-bg: var(--navy-100);
+  --warning: var(--orange-800); --warning-bg: var(--orange-100);
+  --info: var(--blue-600); --info-bg: var(--blue-100);
 
   /* ── États pédagogiques (jamais la couleur seule : toujours icône + texte, CDC UX-03) ── */
   --mastery-todo: var(--danger);        /* « à travailler » */
-  --mastery-progress: var(--gold-700);  /* « en progression » */
+  --mastery-progress: var(--orange-700);  /* « en progression » */
   --mastery-good: var(--success);       /* « résultats encourageants » */
   --mastery-unknown: var(--text-muted); /* « non évalué » / « à confirmer » */
 
@@ -79,27 +79,27 @@
 
 /* Mode sombre (CDC UX-03) : mêmes rôles, autres valeurs */
 :root[data-theme="dark"], .theme-dark {
-  --bg: var(--navy-950);
-  --bg-subtle: var(--navy-900);
-  --surface: var(--navy-900);
-  --surface-raised: var(--navy-800);
-  --border: #26416E;
-  --border-input: #7F93B8;
-  --text: #F3F6FB;
-  --text-muted: #B4C1D9;
-  --accent: var(--gold-400);
-  --accent-hover: #F0C960;
-  --text-on-accent: var(--navy-950);
-  --highlight: var(--gold-400);
-  --highlight-text: var(--gold-400);
-  --highlight-graphic: var(--gold-400);
+  --bg: var(--blue-950);
+  --bg-subtle: var(--blue-900);
+  --surface: var(--blue-900);
+  --surface-raised: var(--blue-800);
+  --border: #2C4F73;
+  --border-input: #86A0BC;
+  --text: #F3F7FB;
+  --text-muted: #B7C7D9;
+  --accent: var(--orange-400);
+  --accent-hover: #FAC96E;
+  --text-on-accent: var(--blue-950);
+  --highlight: var(--orange-400);
+  --highlight-text: var(--orange-400);
+  --highlight-graphic: var(--orange-400);
   --focus-ring: #7DB2FF;
   --success: #4CC38A; --success-bg: #0C3324;
   --danger: #FF8A80;  --danger-bg: #3F1512;
-  --warning: var(--gold-400); --warning-bg: #3A2E0A;
-  --info: #9DB8E8; --info-bg: #10285A;
-  --mastery-todo: #FF8A80; --mastery-progress: var(--gold-400);
-  --mastery-good: #4CC38A; --mastery-unknown: #B4C1D9;
+  --warning: var(--orange-400); --warning-bg: #3A2A08;
+  --info: #9CC0E4; --info-bg: #123556;
+  --mastery-todo: #FF8A80; --mastery-progress: var(--orange-400);
+  --mastery-good: #4CC38A; --mastery-unknown: #B7C7D9;
 }
 
 /* Mouvement réduit (CDC UX-03) */
